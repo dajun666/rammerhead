@@ -1,0 +1,40 @@
+name = "rammerhead"
+main = "src/index.ts"
+compatibility_date = "2026-02-12"
+
+# Account configuration
+account_id = "YOUR_ACCOUNT_ID"
+workers_dev = true
+
+# Environments
+[env.production]
+name = "rammerhead-prod"
+route = "YOUR_DOMAIN/*"
+zone_id = "YOUR_ZONE_ID"
+
+[env.staging]
+name = "rammerhead-staging"
+workers_dev = true
+
+# Build configuration
+[build]
+command = "npm run build"
+cwd = "./"
+
+# KV Namespaces (if needed)
+# [[kv_namespaces]]
+# binding = "KV_STORE"
+# id = "YOUR_KV_ID"
+# preview_id = "YOUR_PREVIEW_KV_ID"
+
+# Durable Objects (if needed)
+# [[durable_objects.bindings]]
+# name = "COUNTER"
+# class_name = "Counter"
+
+# Environment variables
+[env.production.vars]
+ENVIRONMENT = "production"
+
+[env.staging.vars]
+ENVIRONMENT = "staging"
